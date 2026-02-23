@@ -1,0 +1,182 @@
+{
+  "info": {
+    "name": "BiteSpot API",
+    "description": "Collection for testing BiteSpot Food Delivery API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Restaurants",
+      "item": [
+        {
+          "name": "Get All Restaurants",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/restaurants",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "restaurants"]
+            }
+          }
+        },
+        {
+          "name": "Get Restaurant by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/restaurants/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "restaurants", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Restaurant Menu",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/restaurants/1/menu",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "restaurants", "1", "menu"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Menu Items",
+      "item": [
+        {
+          "name": "Get All Menu Items",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/menu-items",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "menu-items"]
+            }
+          }
+        },
+        {
+          "name": "Get Menu Item by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/menu-items/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "menu-items", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"restaurant_id\": 1,\n  \"customer_name\": \"John Doe\",\n  \"customer_email\": \"john@example.com\",\n  \"customer_phone\": \"03001234567\",\n  \"delivery_address\": \"House 123, Street 45, Karachi\",\n  \"payment_method\": \"Cash on Delivery\",\n  \"items\": [\n    {\n      \"menu_item_id\": 1,\n      \"quantity\": 2,\n      \"price\": 800\n    },\n    {\n      \"menu_item_id\": 2,\n      \"quantity\": 1,\n      \"price\": 950\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/orders",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "orders"]
+            }
+          }
+        },
+        {
+          "name": "Get Order by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/orders/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "orders", "1"]
+            }
+          }
+        },
+        {
+          "name": "Track Order",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/orders/track/BS12345678",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "orders", "track", "BS12345678"]
+            }
+          }
+        },
+        {
+          "name": "Update Order Status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"confirmed\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/orders/1/status",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "orders", "1", "status"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "health"]
+        }
+      }
+    }
+  ]
+}
