@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Track Order – BiteSpot</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Correct stylesheet path -->
+  <link rel="stylesheet" href="css/styles.css"/>
+
+  <!-- Temporary overrides to avoid legacy color conflicts -->
+  <style>
+    body { background:#fffaf3; color:#212529; font-family:'Poppins',sans-serif; }
+    .form-control:focus { border-color:#ff7a00; box-shadow:0 0 0 .25rem rgba(255,122,0,.25); }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color:#ff7a00;">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">BiteSpot</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse mt-2 mt-lg-0" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="restaurants.html">Restaurants</a></li>
+          <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+          <li class="nav-item"><a class="nav-link" href="checkout.html">Checkout</a></li>
+          <li class="nav-item"><a class="nav-link active" href="tracking.html">Tracking</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Tracking Section -->
+  <main class="py-5">
+    <div class="container">
+      <h1 class="fw-bold text-center mb-3">Track Your Order</h1>
+      <p class="text-center text-muted mb-4">Enter your order ID to see the latest status.</p>
+
+      <div class="row justify-content-center g-4">
+        <!-- Track form -->
+        <div class="col-lg-4">
+          <div class="card shadow-sm border-0">
+            <div class="card-header" style="background:#ff7a00;">
+              <h5 class="mb-0 text-white">Find Order</h5>
+            </div>
+            <div class="card-body">
+              <form id="trackForm" novalidate>
+                <label class="form-label fw-semibold">Order Number</label>
+                <div class="input-group mb-3">
+                  <input type="text" id="orderInput" class="form-control" placeholder="e.g. BS12345678" required>
+                  <button class="btn text-white" type="submit" style="background:#ff7a00;">Track</button>
+                </div>
+                <div class="form-text">Use the order number from your confirmation.</div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status -->
+        <div class="col-lg-8">
+          <div class="card shadow-sm border-0">
+            <div class="card-header" style="background:#ff7a00;">
+              <h5 class="mb-0 text-white">Order Status</h5>
+            </div>
+            <div class="card-body">
+              <!-- Order Details -->
+              <div id="orderDetails" style="display: none;">
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                      <h5 class="mb-1" id="orderNumber">Order #BS12345678</h5>
+                      <p class="text-muted mb-0" id="orderDate">Placed on Jan 3, 2026</p>
+                    </div>
+                    <div class="text-end">
+                      <h5 class="mb-0 text-success" id="orderTotal">Rs. 1200</h5>
+                      <p class="text-muted mb-0" id="paymentMethod">Cash on Delivery</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Progress Timeline -->
+                <div class="mb-4">
+                  <div class="progress mb-2" style="height: 8px;">
+                    <div id="progressBar" class="progress-bar" style="width: 25%; background:#ff7a00;"></div>
+                  </div>
+                  <div class="d-flex justify-content-between small text-muted">
+                    <span>Placed</span>
+                    <span>Preparing</span>
+                    <span>Out for Delivery</span>
+                    <span>Delivered</span>
+                  </div>
+                </div>
+
+                <!-- Current Status Badge -->
+                <div class="alert alert-info text-center mb-4">
+                  <h6 class="mb-0">Current Status: <span id="currentStatus" class="fw-bold">Order Placed</span></h6>
+                </div>
+
+                <!-- Customer Info -->
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="card border">
+                      <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">Customer Details</h6>
+                        <p class="mb-1"><strong>Name:</strong> <span id="customerName">-</span></p>
+                        <p class="mb-0"><strong>Phone:</strong> <span id="customerPhone">-</span></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card border">
+                      <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">Delivery Address</h6>
+                        <p class="mb-0" id="deliveryAddress">-</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Order Items -->
+                <div class="mt-4">
+                  <h6 class="mb-3">Order Items:</h6>
+                  <div class="table-responsive">
+                    <table class="table table-sm">
+                      <thead>
+                        <tr>
+                          <th>Item</th>
+                          <th class="text-center">Qty</th>
+                          <th class="text-end">Price</th>
+                          <th class="text-end">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody id="orderItems">
+                        <!-- Items will be loaded here -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- No Order Message -->
+              <div id="noOrderMessage" class="text-center py-5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#ccc" class="bi bi-search mb-3" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+                <p class="text-muted">Enter your order number above to track your order</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-5 py-4 text-white" style="background-color:#ff7a00;">
+    <div class="container text-center small">
+      <p class="mb-0">© 2025 BiteSpot — Designed for Web Project</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- API Integration -->
+  <script src="js/api.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const orderNum = urlParams.get('order');
+    
+    if (orderNum) {
+      document.getElementById('orderInput').value = orderNum;
+      trackMyOrder();
+    }
+    
+    document.getElementById('trackForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      trackMyOrder();
+    });
+    
+    async function trackMyOrder() {
+      const orderNumber = document.getElementById('orderInput').value.trim();
+      
+      if (!orderNumber) {
+        alert('Please enter an order number');
+        return;
+      }
+      
+      // Try backend API first
+      let result;
+      try {
+        result = await trackOrder(orderNumber);
+      } catch (error) {
+        console.warn('Backend API unavailable, checking local storage');
+        result = null;
+      }
+      
+      // Fallback: Check localStorage if backend fails
+      if (!result || !result.success) {
+        const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+        const localOrder = orders.find(o => o.order_number === orderNumber);
+        
+        if (localOrder) {
+          result = {
+            success: true,
+            data: localOrder
+          };
+        } else {
+          result = {
+            success: false,
+            error: 'Order not found'
+          };
+        }
+      }
+      
+      if (result.success && result.data) {
+        const order = result.data;
+        
+        // Show order details section
+        document.getElementById('orderDetails').style.display = 'block';
+        document.getElementById('noOrderMessage').style.display = 'none';
+        
+        // Status mapping
+        const statusMap = {
+          'pending': { text: 'Order Placed', progress: 25, color: 'info' },
+          'confirmed': { text: 'Order Confirmed', progress: 40, color: 'primary' },
+          'preparing': { text: 'Being Prepared', progress: 60, color: 'warning' },
+          'out_for_delivery': { text: 'Out for Delivery', progress: 85, color: 'primary' },
+          'delivered': { text: 'Delivered', progress: 100, color: 'success' },
+          'cancelled': { text: 'Cancelled', progress: 0, color: 'danger' }
+        };
+        
+        const status = statusMap[order.status] || { text: order.status, progress: 25, color: 'info' };
+        
+        // Update progress bar
+        const progressBar = document.getElementById('progressBar');
+        progressBar.style.width = status.progress + '%';
+        
+        // Update order details
+        document.getElementById('orderNumber').textContent = 'Order #' + order.order_number;
+        document.getElementById('orderDate').textContent = 'Placed on ' + new Date(order.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+        document.getElementById('orderTotal').textContent = 'Rs. ' + order.total_amount;
+        document.getElementById('paymentMethod').textContent = order.payment_method;
+        document.getElementById('currentStatus').textContent = status.text;
+        document.getElementById('customerName').textContent = order.customer_name;
+        document.getElementById('customerPhone').textContent = order.customer_phone || 'N/A';
+        document.getElementById('deliveryAddress').textContent = order.delivery_address;
+        
+        // Update status badge color
+        const statusAlert = document.querySelector('.alert');
+        statusAlert.className = 'alert alert-' + status.color + ' text-center mb-4';
+        
+        // Load order items if available
+        if (order.items && order.items.length > 0) {
+          const itemsTable = document.getElementById('orderItems');
+          itemsTable.innerHTML = '';
+          
+          order.items.forEach(item => {
+            const row = `
+              <tr>
+                <td>${item.menu_item_name || item.name || 'Item'}</td>
+                <td class="text-center">${item.quantity}</td>
+                <td class="text-end">Rs. ${item.price}</td>
+                <td class="text-end">Rs. ${item.quantity * item.price}</td>
+              </tr>
+            `;
+            itemsTable.innerHTML += row;
+          });
+        } else {
+          document.getElementById('orderItems').innerHTML = '<tr><td colspan="4" class="text-center text-muted">No items details available</td></tr>';
+        }
+        
+      } else {
+        // Show no order message
+        document.getElementById('orderDetails').style.display = 'none';
+        document.getElementById('noOrderMessage').style.display = 'block';
+        document.getElementById('noOrderMessage').innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#dc3545" class="bi bi-exclamation-circle mb-3" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+          </svg>
+          <h6 class="text-danger">Order Not Found</h6>
+          <p class="text-muted">Please check the order number and try again.</p>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>

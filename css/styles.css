@@ -1,0 +1,141 @@
+
+/* CSS Variables */
+:root {
+  --brand: #ff7a00;
+  --brand-dark: #e66e00;
+  --bg-soft: #fffaf3;
+  --radius-sm: .5rem;
+  --radius-md: .8rem;
+  --radius-lg: 1.2rem;
+  --shadow-soft: 0 4px 10px rgba(0,0,0,0.08);
+  --font-stack: 'Poppins', sans-serif;
+}
+
+/* Global Reset Lite */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-stack);
+  background: var(--bg-soft);
+  color: #212529;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Brand Utilities */
+.text-brand { color: var(--brand) !important; }
+.bg-brand { background-color: var(--brand) !important; }
+.border-brand { border-color: var(--brand) !important; }
+
+.btn-brand {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  transition: .25s ease;
+}
+.btn-brand:hover,
+.btn-brand:focus {
+  background: var(--brand-dark);
+  color: #fff;
+}
+
+.shadow-soft { box-shadow: var(--shadow-soft); }
+.rounded-lg { border-radius: var(--radius-lg) !important; }
+.rounded-md { border-radius: var(--radius-md) !important; }
+
+/* Hero Section (optional background tone) */
+.hero-section {
+  background: #faf7f2;
+}
+
+/* Carousel images */
+.carousel-img {
+  height: 380px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Feature cards (reused for simple info blocks) */
+.feature-card,
+.card-plain {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Generic content box (legacy replacement) */
+.simple-box {
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  padding: 1.25rem;
+}
+
+/* Form focus states (Bootstrap enhancements) */
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 .25rem rgba(255,122,0,.25);
+}
+
+/* Progress bar brand color override */
+.progress-bar {
+  background: var(--brand);
+}
+
+/* Footer tweaks */
+footer p {
+  letter-spacing: .5px;
+  margin: 0;
+  font-size: .9rem;
+}
+
+/* Small helper for muted note blocks */
+.note-muted {
+  font-size: .8rem;
+  color: #6c757d;
+}
+
+/* Professional Restaurant Cards */
+.restaurant-card-hover {
+  transition: all 0.3s ease;
+}
+
+.restaurant-card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+}
+
+.restaurant-card-hover:hover img {
+  transform: scale(1.05);
+}
+
+.restaurant-card-hover .btn:hover {
+  background: #e66e00 !important;
+  transform: scale(1.02);
+}
+
+/* Transition helpers for interactive elements */
+.hover-fade {
+  transition: .25s;
+}
+.hover-fade:hover {
+  opacity: .85;
+}
+
+/* Placeholder: highlight current tracking step (if JS added later) */
+.status-step-active {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+/* Remove list default bullets when needed (e.g., custom status lists) */
+.list-clean {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+

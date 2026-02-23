@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Restaurants – BiteSpot</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color:#ff7a00;">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">BiteSpot</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse mt-2 mt-lg-0" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="restaurants.html">Restaurants</a></li>
+          <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+          <li class="nav-item"><a class="nav-link" href="checkout.html">Checkout</a></li>
+          <li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Restaurants -->
+  <section class="py-5">
+    <div class="container">
+      <div id="restaurantsView">
+        <h1 class="fw-bold text-center mb-4">Restaurants</h1>
+        <p class="text-center text-muted mb-5">Explore top-rated spots across all your favorite cuisines.</p>
+
+        <div class="row g-4" id="restaurantsList">
+        <!-- 1 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/1.jpg" class="card-img-top" alt="Pizza Town" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Pizza Town</h5>
+              <p class="card-text small text-muted">Fast Food • ★ 4.7</p>
+              <button onclick="showMenu(1, 'Pizza Town', 'Fast Food', 4.7)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+        <!-- 2 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/2.jpg" class="card-img-top" alt="Pasta junction" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Pasta junction</h5>
+              <p class="card-text small text-muted">Fast Food • ★ 4.3</p>
+              <button onclick="showMenu(2, 'Pasta junction', 'Italian Cuisine', 4.3)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/3.jpg" class="card-img-top" alt="Burger Spot" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Burger Spot</h5>
+              <p class="card-text small text-muted">Fast Food • ★ 4.5</p>
+              <button onclick="showMenu(3, 'Burger Spot', 'Fast Food', 4.5)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/4.jpg" class="card-img-top" alt="Flaming Shawarma" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Flaming Shawarma</h5>
+              <p class="card-text small text-muted">Fast Food • ★ 4.4</p>
+              <button onclick="showMenu(4, 'Flaming Shawarma', 'Fast Food', 4.4)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+        <!-- 5 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/5.jpeg" class="card-img-top" alt="Dastarkhwan" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Dastarkhwan</h5>
+              <p class="card-text small text-muted">Desi khany • ★ 4.3</p>
+              <button onclick="showMenu(5, 'Dastarkhwan', 'Desi Cuisine', 4.3)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+        <!-- 6 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/6.jpg" class="card-img-top" alt="Spice Villa" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Spice Villa</h5>
+              <p class="card-text small text-muted">Pakistani Cuisine • ★ 4.7</p>
+              <button onclick="showMenu(6, 'Spice Villa', 'Pakistani Cuisine', 4.7)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+        <!-- 7 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/7.jpg" class="card-img-top" alt="Lahori Tikka" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Lahori Tikka</h5>
+              <p class="card-text small text-muted">BBQ • ★ 4.5</p>
+              <button onclick="showMenu(7, 'Lahori Tikka', 'BBQ', 4.5)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+        <!-- 8 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/8.jpeg" class="card-img-top" alt="Sultan-e-Zaika" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Sultan-e-Zaika</h5>
+              <p class="card-text small text-muted">Traditional cuisines • ★ 4.8</p>
+              <button onclick="showMenu(8, 'Sultan-e-Zaika', 'Traditional Cuisine', 4.8)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+        <!-- 9 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/9.jpg" class="card-img-top" alt="Dessert District" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Dessert District</h5>
+              <p class="card-text small text-muted">Shakes & lava cakes • ★ 4.6</p>
+              <button onclick="showMenu(9, 'Dessert District', 'Desserts', 4.6)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+        <!-- 10 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/10.jpg" class="card-img-top" alt="Ice Cloud" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Ice Cloud</h5>
+              <p class="card-text small text-muted">Ice Cream • ★ 4.5</p>
+              <button onclick="showMenu(10, 'Ice Cloud', 'Ice Cream', 4.5)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+        <!-- 11 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/11.jpg" class="card-img-top" alt="The Coffee Studio" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">The Coffee Studio</h5>
+              <p class="card-text small text-muted">Café • ★ 4.8</p>
+              <button onclick="showMenu(11, 'The Coffee Studio', 'Café', 4.8)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+        <!-- 12 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/12.jpg" class="card-img-top" alt="Mood Café" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Mood Café</h5>
+              <p class="card-text small text-muted">Aesthetic Café • ★ 4.6</p>
+              <button onclick="showMenu(12, 'Mood Café', 'Aesthetic Café', 4.6)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+        <!-- 13 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/13.jpg" class="card-img-top" alt="Golden Chopsticks" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Golden Chopsticks</h5>
+              <p class="card-text small text-muted">Chinese Cuisine • ★ 4.4</p>
+              <button onclick="showMenu(13, 'Golden Chopsticks', 'Chinese Cuisine', 4.4)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+        <!-- 14 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/14.jpg" class="card-img-top" alt="Mandi House" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Mandi House</h5>
+              <p class="card-text small text-muted">Mandi • ★ 4.5</p>
+              <button onclick="showMenu(14, 'Mandi House', 'Arabian Cuisine', 4.5)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+        <!-- 15 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/15.jpg" class="card-img-top" alt="Kebab Street" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Kebab Street</h5>
+              <p class="card-text small text-muted">Kebabs special • ★ 4.7</p>
+              <button onclick="showMenu(15, 'Kebab Street', 'Kebabs', 4.7)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+        <!-- 16 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="images/resturants/16.jpg" class="card-img-top" alt="Chaska Chai" style="height:160px;object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Chaska Chai</h5>
+              <p class="card-text small text-muted">Tea • ★ 4.7</p>
+              <button onclick="showMenu(16, 'Chaska Chai', 'Tea House', 4.7)" class="btn btn-sm text-white" style="background:#ff7a00;">View Menu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!-- Menu View -->
+      <div id="menuView" style="display: none;">
+        <button class="btn btn-outline-secondary mb-4" onclick="backToRestaurants()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+          </svg>
+          Back to Restaurants
+        </button>
+        
+        <div class="text-center mb-4">
+          <h2 class="fw-bold" id="restaurantName"></h2>
+          <p class="text-muted" id="restaurantInfo"></p>
+        </div>
+
+        <div class="row g-4" id="menuItemsGrid">
+          <!-- Menu items will be loaded here -->
+        </div>
+        
+        <div class="text-center mt-5">
+          <a href="cart.html" class="btn btn-lg text-white" style="background-color:#ff7a00;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart-check me-2" viewBox="0 0 16 16">
+              <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+              <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            </svg>
+            View Cart
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Menu Functionality -->
+  <script>
+    // Sample menu items data - at least 7 items per restaurant
+    const restaurantMenus = {
+      1: [ // Pizza Town
+        { id: 1, name: 'Margherita Pizza', description: 'Classic tomato and mozzarella', price: 850 },
+        { id: 2, name: 'Pepperoni Pizza', description: 'Loaded with pepperoni slices', price: 950 },
+        { id: 3, name: 'BBQ Chicken Pizza', description: 'BBQ sauce, chicken, and onions', price: 1050 },
+        { id: 4, name: 'Veggie Supreme Pizza', description: 'Fresh vegetables and cheese', price: 900 },
+        { id: 5, name: 'Hawaiian Pizza', description: 'Ham and pineapple', price: 950 },
+        { id: 6, name: 'Four Cheese Pizza', description: 'Blend of four premium cheeses', price: 1100 },
+        { id: 7, name: 'Meat Lovers Pizza', description: 'Loaded with assorted meats', price: 1200 },
+        { id: 8, name: 'Garlic Bread', description: 'Toasted bread with garlic butter', price: 250 }
+      ],
+      2: [ // Pasta Junction
+        { id: 9, name: 'Spaghetti Carbonara', description: 'Creamy pasta with bacon', price: 750 },
+        { id: 10, name: 'Fettuccine Alfredo', description: 'Rich and creamy white sauce', price: 800 },
+        { id: 11, name: 'Penne Arrabbiata', description: 'Spicy tomato sauce pasta', price: 700 },
+        { id: 12, name: 'Lasagna', description: 'Layered pasta with meat sauce', price: 950 },
+        { id: 13, name: 'Pasta Primavera', description: 'Fresh vegetables in white sauce', price: 850 },
+        { id: 14, name: 'Mac and Cheese', description: 'Classic comfort food', price: 600 },
+        { id: 15, name: 'Pesto Pasta', description: 'Fresh basil pesto sauce', price: 850 },
+        { id: 16, name: 'Seafood Pasta', description: 'Mixed seafood in tomato sauce', price: 1200 }
+      ],
+      3: [ // Burger Spot
+        { id: 17, name: 'Classic Beef Burger', description: 'Juicy beef patty with lettuce', price: 650 },
+        { id: 18, name: 'Cheese Burger', description: 'Beef burger with cheddar cheese', price: 700 },
+        { id: 19, name: 'Chicken Burger', description: 'Grilled chicken patty', price: 600 },
+        { id: 20, name: 'Zinger Burger', description: 'Crispy fried chicken', price: 650 },
+        { id: 21, name: 'Double Decker Burger', description: 'Two beef patties stacked', price: 900 },
+        { id: 22, name: 'Veggie Burger', description: 'Plant-based patty', price: 550 },
+        { id: 23, name: 'BBQ Bacon Burger', description: 'BBQ sauce and crispy bacon', price: 850 }
+      ],
+      4: [ // Flaming Shawarma
+        { id: 24, name: 'Chicken Shawarma', description: 'Wrapped chicken with garlic sauce', price: 450 },
+        { id: 25, name: 'Beef Shawarma', description: 'Tender beef shawarma wrap', price: 500 },
+        { id: 26, name: 'Mix Shawarma', description: 'Chicken and beef combo', price: 550 },
+        { id: 27, name: 'Shawarma Platter', description: 'Rice with shawarma and salad', price: 850 },
+        { id: 28, name: 'Falafel Wrap', description: 'Crispy falafel with tahini', price: 400 },
+        { id: 29, name: 'Hummus Plate', description: 'Creamy hummus with pita', price: 350 },
+        { id: 30, name: 'Garlic Fries', description: 'Fries with garlic sauce', price: 250 }
+      ],
+      5: [ // Dastarkhwan
+        { id: 31, name: 'Chicken Karahi', description: 'Traditional chicken karahi', price: 950 },
+        { id: 32, name: 'Mutton Karahi', description: 'Tender mutton karahi', price: 1200 },
+        { id: 33, name: 'Chicken Biryani', description: 'Aromatic chicken biryani', price: 550 },
+        { id: 34, name: 'Mutton Biryani', description: 'Premium mutton biryani', price: 750 },
+        { id: 35, name: 'Nihari', description: 'Slow-cooked beef nihari', price: 800 },
+        { id: 36, name: 'Haleem', description: 'Traditional wheat and meat', price: 600 },
+        { id: 37, name: 'Raita', description: 'Fresh yogurt with cucumber', price: 150 }
+      ],
+      6: [ // Spice Villa
+        { id: 38, name: 'Chicken Tikka', description: 'Grilled chicken tikka', price: 700 },
+        { id: 39, name: 'Beef Seekh Kabab', description: 'Minced beef kabab', price: 750 },
+        { id: 40, name: 'Chicken Handi', description: 'Creamy chicken handi', price: 850 },
+        { id: 41, name: 'Palak Paneer', description: 'Spinach with cottage cheese', price: 650 },
+        { id: 42, name: 'Butter Chicken', description: 'Rich tomato curry', price: 900 },
+        { id: 43, name: 'Garlic Naan', description: 'Fresh garlic naan bread', price: 100 },
+        { id: 44, name: 'Dal Makhani', description: 'Creamy black lentils', price: 500 }
+      ],
+      7: [ // Lahori Tikka
+        { id: 45, name: 'Chicken Tikka', description: 'Spicy grilled chicken', price: 650 },
+        { id: 46, name: 'Beef Tikka', description: 'Tender beef tikka', price: 750 },
+        { id: 47, name: 'Malai Boti', description: 'Creamy chicken tikka', price: 700 },
+        { id: 48, name: 'Seekh Kabab', description: 'Minced meat kabab', price: 600 },
+        { id: 49, name: 'Chapli Kabab', description: 'Traditional flat kabab', price: 550 },
+        { id: 50, name: 'BBQ Platter', description: 'Mixed BBQ meats', price: 1500 },
+        { id: 51, name: 'Tandoori Naan', description: 'Fresh tandoori bread', price: 80 }
+      ],
+      8: [ // Sultan-e-Zaika
+        { id: 52, name: 'Mutton Korma', description: 'Rich mutton korma', price: 1100 },
+        { id: 53, name: 'Chicken Korma', description: 'Creamy chicken korma', price: 850 },
+        { id: 54, name: 'Pulao', description: 'Fragrant rice pulao', price: 400 },
+        { id: 55, name: 'Shahi Tukray', description: 'Traditional dessert', price: 300 },
+        { id: 56, name: 'Kheer', description: 'Rice pudding', price: 250 },
+        { id: 57, name: 'Chicken Roast', description: 'Whole roasted chicken', price: 1800 },
+        { id: 58, name: 'Kofta Curry', description: 'Meatballs in curry', price: 750 }
+      ],
+      9: [ // Dessert District
+        { id: 59, name: 'Chocolate Lava Cake', description: 'Molten chocolate center', price: 550 },
+        { id: 60, name: 'Red Velvet Cake', description: 'Classic red velvet', price: 500 },
+        { id: 61, name: 'Oreo Shake', description: 'Thick oreo milkshake', price: 450 },
+        { id: 62, name: 'Nutella Shake', description: 'Rich nutella shake', price: 500 },
+        { id: 63, name: 'Brownie Fudge', description: 'Warm brownie with ice cream', price: 600 },
+        { id: 64, name: 'Tiramisu', description: 'Italian coffee dessert', price: 650 },
+        { id: 65, name: 'Cheesecake', description: 'New York style cheesecake', price: 700 }
+      ],
+      10: [ // Ice Cloud
+        { id: 66, name: 'Vanilla Ice Cream', description: 'Classic vanilla flavor', price: 250 },
+        { id: 67, name: 'Chocolate Ice Cream', description: 'Rich chocolate flavor', price: 250 },
+        { id: 68, name: 'Strawberry Ice Cream', description: 'Fresh strawberry flavor', price: 280 },
+        { id: 69, name: 'Mango Ice Cream', description: 'Tropical mango flavor', price: 300 },
+        { id: 70, name: 'Sundae Special', description: 'Ice cream with toppings', price: 450 },
+        { id: 71, name: 'Banana Split', description: 'Classic banana split', price: 500 },
+        { id: 72, name: 'Ice Cream Sandwich', description: 'Ice cream between cookies', price: 350 }
+      ],
+      11: [ // The Coffee Studio
+        { id: 73, name: 'Espresso', description: 'Strong Italian coffee', price: 250 },
+        { id: 74, name: 'Cappuccino', description: 'Coffee with frothy milk', price: 350 },
+        { id: 75, name: 'Latte', description: 'Smooth coffee with milk', price: 400 },
+        { id: 76, name: 'Mocha', description: 'Coffee with chocolate', price: 450 },
+        { id: 77, name: 'Cold Brew', description: 'Smooth cold coffee', price: 400 },
+        { id: 78, name: 'Caramel Macchiato', description: 'Sweet caramel coffee', price: 500 },
+        { id: 79, name: 'Croissant', description: 'Buttery French pastry', price: 300 }
+      ],
+      12: [ // Mood Café
+        { id: 80, name: 'Iced Coffee', description: 'Refreshing cold coffee', price: 350 },
+        { id: 81, name: 'Frappe', description: 'Blended iced coffee', price: 450 },
+        { id: 82, name: 'Hot Chocolate', description: 'Rich hot chocolate', price: 400 },
+        { id: 83, name: 'Green Tea', description: 'Healthy green tea', price: 250 },
+        { id: 84, name: 'Club Sandwich', description: 'Triple decker sandwich', price: 650 },
+        { id: 85, name: 'Chicken Wrap', description: 'Grilled chicken wrap', price: 550 },
+        { id: 86, name: 'Waffle', description: 'Belgian waffle with syrup', price: 500 }
+      ],
+      13: [ // Golden Chopsticks
+        { id: 87, name: 'Chicken Fried Rice', description: 'Classic fried rice', price: 600 },
+        { id: 88, name: 'Beef Chow Mein', description: 'Stir-fried noodles', price: 700 },
+        { id: 89, name: 'Sweet & Sour Chicken', description: 'Tangy chicken dish', price: 850 },
+        { id: 90, name: 'Kung Pao Chicken', description: 'Spicy Sichuan chicken', price: 900 },
+        { id: 91, name: 'Spring Rolls', description: 'Crispy vegetable rolls', price: 400 },
+        { id: 92, name: 'Manchurian', description: 'Spicy veg balls in sauce', price: 550 },
+        { id: 93, name: 'Hot & Sour Soup', description: 'Spicy tangy soup', price: 350 }
+      ],
+      14: [ // Mandi House
+        { id: 94, name: 'Chicken Mandi', description: 'Traditional Arabian rice', price: 1200 },
+        { id: 95, name: 'Mutton Mandi', description: 'Tender mutton with rice', price: 1500 },
+        { id: 96, name: 'Half Chicken Mandi', description: 'Half chicken with rice', price: 800 },
+        { id: 97, name: 'Kabsa', description: 'Spiced rice with meat', price: 1300 },
+        { id: 98, name: 'Arabic Salad', description: 'Fresh vegetable salad', price: 300 },
+        { id: 99, name: 'Hummus', description: 'Chickpea dip', price: 350 },
+        { id: 100, name: 'Kunafa', description: 'Sweet cheese pastry', price: 500 }
+      ],
+      15: [ // Kebab Street
+        { id: 101, name: 'Chicken Seekh Kebab', description: 'Grilled chicken kebab', price: 600 },
+        { id: 102, name: 'Beef Seekh Kebab', description: 'Grilled beef kebab', price: 650 },
+        { id: 103, name: 'Reshmi Kebab', description: 'Soft chicken kebab', price: 700 },
+        { id: 104, name: 'Shami Kebab', description: 'Traditional kebab patty', price: 550 },
+        { id: 105, name: 'Boti Kebab', description: 'Marinated meat chunks', price: 750 },
+        { id: 106, name: 'Kebab Platter', description: 'Mixed kebab varieties', price: 1400 },
+        { id: 107, name: 'Mint Chutney', description: 'Fresh mint sauce', price: 100 }
+      ],
+      16: [ // Chaska Chai
+        { id: 108, name: 'Doodh Patti Chai', description: 'Strong milk tea', price: 120 },
+        { id: 109, name: 'Kashmiri Chai', description: 'Pink salted tea', price: 200 },
+        { id: 110, name: 'Green Tea', description: 'Herbal green tea', price: 150 },
+        { id: 111, name: 'Samosa', description: 'Crispy potato samosa', price: 80 },
+        { id: 112, name: 'Pakora', description: 'Mixed vegetable fritters', price: 150 },
+        { id: 113, name: 'Paratha Roll', description: 'Egg paratha roll', price: 250 },
+        { id: 114, name: 'Bun Kebab', description: 'Burger with kebab patty', price: 200 }
+      ]
+    };
+
+    // Show menu for selected restaurant
+    function showMenu(restaurantId, name, category, rating) {
+      // Hide restaurants view, show menu view
+      document.getElementById('restaurantsView').style.display = 'none';
+      document.getElementById('menuView').style.display = 'block';
+      
+      // Update restaurant info
+      document.getElementById('restaurantName').textContent = name;
+      document.getElementById('restaurantInfo').textContent = `${category} • ★ ${rating}`;
+      
+      const menuGrid = document.getElementById('menuItemsGrid');
+      const menuItems = restaurantMenus[restaurantId] || [];
+      
+      if (menuItems.length > 0) {
+        menuGrid.innerHTML = '';
+        
+        menuItems.forEach((item, index) => {
+          const itemHTML = `
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                  <div class="mb-2">
+                    <span class="badge" style="background-color:#ff7a00;">#${index + 1}</span>
+                  </div>
+                  <h6 class="card-title fw-bold mb-2">${item.name}</h6>
+                  <p class="card-text small text-muted flex-grow-1">${item.description}</p>
+                  <div class="d-flex justify-content-between align-items-center mt-2">
+                    <span class="fw-bold text-success">Rs. ${item.price}</span>
+                  </div>
+                  <button onclick="addToCart(${restaurantId}, '${name.replace(/'/g, "\\'")}', ${item.id}, '${item.name.replace(/'/g, "\\'")}', ${item.price})" 
+                          class="btn btn-sm text-white mt-3 w-100" style="background:#ff7a00;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-cart-plus me-1" viewBox="0 0 16 16">
+                      <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
+                      <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+          menuGrid.innerHTML += itemHTML;
+        });
+      } else {
+        menuGrid.innerHTML = '<div class="col-12"><p class="text-center text-muted">No menu items available</p></div>';
+      }
+      
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+
+    // Add item to cart
+    function addToCart(restaurantId, restaurantName, itemId, itemName, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      
+      // Check if item already exists
+      const existingItem = cart.find(item => item.id === itemId);
+      
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({
+          id: itemId,
+          name: itemName,
+          price: price,
+          quantity: 1,
+          restaurantId: restaurantId,
+          restaurantName: restaurantName
+        });
+      }
+      
+      localStorage.setItem('cart', JSON.stringify(cart));
+      
+      // Show success message
+      alert(`${itemName} added to cart!`);
+    }
+
+    // Back to restaurants view
+    function backToRestaurants() {
+      document.getElementById('restaurantsView').style.display = 'block';
+      document.getElementById('menuView').style.display = 'none';
+      window.scrollTo(0, 0);
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer class="mt-5 py-4 text-white" style="background-color:#ff7a00;">
+    <div class="container text-center small">
+      <p class="mb-0">© 2025 BiteSpot — Designed for Web Project</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>

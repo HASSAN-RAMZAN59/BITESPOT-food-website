@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Checkout – BiteSpot</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Your stylesheet -->
+  <link rel="stylesheet" href="css/styles.css"/>
+
+  <!-- Temporary overrides (until CSS cleanup) -->
+  <style>
+    body { background:#fffaf3; color:#212529; font-family:'Poppins',sans-serif; }
+    .form-control:focus, .form-select:focus, textarea:focus {
+      border-color:#ff7a00;
+      box-shadow:0 0 0 .25rem rgba(255,122,0,.25);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color:#ff7a00;">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">BiteSpot</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse mt-2 mt-lg-0" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="restaurants.html">Restaurants</a></li>
+          <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+          <li class="nav-item"><a class="nav-link active" href="checkout.html">Checkout</a></li>
+          <li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Checkout Section -->
+  <main class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <h1 class="fw-bold text-center mb-4">Checkout</h1>
+          <p class="text-center text-muted mb-4">Provide your delivery details and select payment method.</p>
+
+          <div class="row g-4">
+            <!-- Order Form -->
+            <div class="col-lg-7">
+              <div class="card shadow-sm border-0">
+                <div class="card-header" style="background:#ff7a00;">
+                  <h5 class="mb-0 text-white">Delivery Details</h5>
+                </div>
+                <div class="card-body">
+                  <form id="checkoutForm" novalidate>
+                    <!-- Name -->
+                    <div class="mb-3">
+                      <label class="form-label fw-semibold">Full Name</label>
+                      <input type="text" id="customerName" class="form-control" placeholder="Enter your name" required>
+                      <div class="form-text">Use real name for delivery confirmation.</div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="mb-3">
+                      <label class="form-label fw-semibold">Phone Number</label>
+                      <input type="tel" id="customerPhone" class="form-control" placeholder="03001234567" required>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="mb-3">
+                      <label class="form-label fw-semibold">Delivery Address</label>
+                      <textarea rows="3" id="deliveryAddress" class="form-control" placeholder="House #, Street, City" required></textarea>
+                    </div>
+
+                    <!-- Payment -->
+                    <div class="mb-3">
+                      <label class="form-label fw-semibold">Payment Method</label>
+                      <select id="paymentMethod" class="form-select" required>
+                        <option value="" selected disabled>Choose method...</option>
+                        <option value="Cash on Delivery">Cash on Delivery</option>
+                        <option value="Credit / Debit Card">Credit / Debit Card</option>
+                        <option value="EasyPaisa / JazzCash">EasyPaisa / JazzCash</option>
+                      </select>
+                    </div>
+
+                    <button type="submit" class="btn w-100 py-2 mt-2" style="background:#ff7a00;color:#fff;border:none;">
+                      Place Order
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="col-lg-5">
+              <div class="card shadow-sm border-0">
+                <div class="card-header" style="background:#ff7a00;">
+                  <h5 class="mb-0 text-white">Order Summary</h5>
+                </div>
+                <div class="card-body">
+                  <div id="cartSummary">
+                    <!-- Cart items will be loaded here -->
+                  </div>
+                  <div class="border-top pt-3 mt-3">
+                    <div class="d-flex justify-content-between mb-2">
+                      <span>Subtotal:</span>
+                      <span id="subtotal">Rs. 0</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                      <span>Delivery Fee:</span>
+                      <span id="deliveryFee">Rs. 100</span>
+                    </div>
+                    <div class="d-flex justify-content-between fw-bold fs-5 mt-3 pt-3 border-top">
+                      <span>Total:</span>
+                      <span class="text-success" id="totalAmount">Rs. 100</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-5 py-4 text-white" style="background-color:#ff7a00;">
+    <div class="container text-center small">
+      <p class="mb-0">© 2025 BiteSpot — Designed for Web Project</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- API Integration -->
+  <script src="js/api.js"></script>
+  <script>
+    // Load cart summary
+    function loadCartSummary() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const cartSummary = document.getElementById('cartSummary');
+      
+      if (cart.length === 0) {
+        cartSummary.innerHTML = '<p class="text-muted text-center">No items in cart</p>';
+        document.getElementById('subtotal').textContent = 'Rs. 0';
+        document.getElementById('totalAmount').textContent = 'Rs. 100';
+        return;
+      }
+      
+      let html = '';
+      let subtotal = 0;
+      
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+        html += `
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div>
+              <small class="fw-semibold">${item.name}</small>
+              <br>
+              <small class="text-muted">Qty: ${item.quantity} × Rs. ${item.price}</small>
+            </div>
+            <span class="text-success">Rs. ${itemTotal}</span>
+          </div>
+        `;
+      });
+      
+      cartSummary.innerHTML = html;
+      document.getElementById('subtotal').textContent = 'Rs. ' + subtotal;
+      document.getElementById('totalAmount').textContent = 'Rs. ' + (subtotal + 100);
+    }
+    
+    const form = document.getElementById('checkoutForm');
+    
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      
+      if (cart.length === 0) {
+        alert('Your cart is empty!');
+        window.location.href = 'restaurants.html';
+        return;
+      }
+      
+      // Validate form
+      if (!form.checkValidity()) {
+        form.classList.add('was-validated');
+        return;
+      }
+      
+      // Get first restaurant ID from cart items
+      const restaurantId = cart[0].restaurantId || 1;
+      
+      const orderData = {
+        restaurant_id: parseInt(restaurantId),
+        customer_name: document.getElementById('customerName').value,
+        customer_email: '',
+        customer_phone: document.getElementById('customerPhone').value,
+        delivery_address: document.getElementById('deliveryAddress').value,
+        payment_method: document.getElementById('paymentMethod').value,
+        items: cart.map(item => ({
+          menu_item_id: item.id,
+          quantity: item.quantity,
+          price: item.price
+        }))
+      };
+      
+      // Show loading
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Placing Order...';
+      
+      // Try backend API first, fallback to local storage if it fails
+      let result;
+      try {
+        result = await placeOrder(orderData);
+      } catch (error) {
+        console.warn('Backend API unavailable, using local fallback');
+        result = null;
+      }
+      
+      // Fallback: Create order locally if backend fails
+      if (!result || !result.success) {
+        const orderNumber = 'BS' + Date.now().toString().slice(-8);
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const total = subtotal + 100; // Add delivery fee
+        
+        const localOrder = {
+          order_number: orderNumber,
+          restaurant_id: restaurantId,
+          restaurant_name: cart[0].restaurantName || 'Restaurant',
+          customer_name: orderData.customer_name,
+          customer_phone: orderData.customer_phone,
+          delivery_address: orderData.delivery_address,
+          payment_method: orderData.payment_method,
+          items: cart,
+          subtotal: subtotal,
+          delivery_fee: 100,
+          total_amount: total,
+          status: 'pending',
+          created_at: new Date().toISOString()
+        };
+        
+        // Save to localStorage
+        const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+        orders.push(localOrder);
+        localStorage.setItem('orders', JSON.stringify(orders));
+        
+        result = {
+          success: true,
+          data: localOrder
+        };
+      }
+      
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+      
+      if (result.success) {
+        // Clear cart
+        localStorage.removeItem('cart');
+        localStorage.removeItem('restaurantId');
+        
+        // Show success message
+        alert(`Order placed successfully!\n\nOrder Number: ${result.data.order_number}\n\nYou will be redirected to track your order.`);
+        
+        // Redirect to tracking page
+        window.location.href = `tracking.html?order=${result.data.order_number}`;
+      } else {
+        alert('Failed to place order. Please try again.\n\nError: ' + (result.error || 'Unknown error'));
+        console.error(result.error);
+      }
+    });
+    
+    // Load cart summary on page load
+    document.addEventListener('DOMContentLoaded', loadCartSummary);
+  </script>
+</body>
+</html>
